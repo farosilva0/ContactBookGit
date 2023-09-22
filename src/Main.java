@@ -13,6 +13,7 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
+    public static final String GET_NUMBER = "GN";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -52,6 +53,9 @@ public class Main {
                     break;
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
+                    break;
+                case GET_NUMBER:
+                    getNumber(in, cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -102,6 +106,12 @@ public class Main {
             System.out.println(cBook.getPhone(name));
         }
         else System.out.println(NAME_NOT_EXIST);
+    }
+
+    private static void getNumber(Scanner in, ContactBook cBook) {
+        int number;
+        number = in.nextInt(); in.nextLine();
+        System.out.println(cBook.getName(number));
     }
 
     private static void getEmail(Scanner in, ContactBook cBook) {
